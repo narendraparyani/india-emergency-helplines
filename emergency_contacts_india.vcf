@@ -1,157 +1,98 @@
 BEGIN:VCARD
 VERSION:3.0
-N:National Emergency;SOS 112;;;
-FN:SOS 112 - National Emergency (All India)
-ORG:Government of India - ERSS
-TEL;TYPE=CELL,VOICE,PREF:112
-NOTE:Single nationwide 24x7 emergency number for Police, Fire, and Ambulance across India. Works without unlocking phone or active SIM.
+PRODID:-//Emergency Contacts India//EN
+N:All India;Emergency 112;;;
+FN:Emergency 112 - All India (ERSS)
+ORG:Government of India
+TEL;TYPE=CELL,VOICE:112
+NOTE:Unified 24x7 nationwide emergency response for Police, Fire, and Ambulance. Works without unlocking phone or active SIM.
 CATEGORIES:Emergency
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-N:Police;SOS 100;;;
-FN:SOS 100 - Police Control Room
+PRODID:-//Emergency Contacts India//EN
+N:Police;Emergency 100;;;
+FN:Emergency 100 - Police Control Room
 ORG:Indian Police
-TEL;TYPE=WORK,VOICE:100
+TEL;TYPE=CELL,VOICE:100
 NOTE:Immediate police assistance and crime reporting across India.
 CATEGORIES:Emergency
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-N:Fire Brigade;SOS 101;;;
-FN:SOS 101 - Fire Department
+PRODID:-//Emergency Contacts India//EN
+N:Fire Department;Emergency 101;;;
+FN:Emergency 101 - Fire Department
 ORG:Fire & Rescue Services
-TEL;TYPE=WORK,VOICE:101
-NOTE:Fire breakouts, building collapse, and emergency rescue operations.
+TEL;TYPE=CELL,VOICE:101
+NOTE:Fire breakouts, trapped rescues, gas leaks, and building collapses.
 CATEGORIES:Emergency
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-N:Ambulance;SOS 102/108;;;
-FN:SOS 108 / 102 - Ambulance Emergency
+PRODID:-//Emergency Contacts India//EN
+N:Ambulance;Emergency 102;;;
+FN:Emergency 102 - Ambulance
 ORG:National Health Mission
-TEL;TYPE=WORK,VOICE:108
-TEL;TYPE=HOME,VOICE:102
-NOTE:108 for critical medical emergencies & trauma response. 102 for maternity and neonatal transport.
+TEL;TYPE=CELL,VOICE:102
+NOTE:Medical emergency and patient transit across India.
 CATEGORIES:Emergency,Medical
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-N:RailMadad;SOS 139;;;
-FN:SOS 139 - Indian Railways (RailMadad)
+PRODID:-//Emergency Contacts India//EN
+N:Indian Railways;Emergency 139;;;
+FN:Emergency 139 - Indian Railways (RailMadad)
 ORG:Ministry of Railways
-TEL;TYPE=WORK,VOICE:139
-NOTE:Press 3 for Security / RPF emergency escort. Press 1 for Medical emergency on board long passenger trains.
+TEL;TYPE=CELL,VOICE:139
+NOTE:Press 3 for Security / RPF emergency boarding team. Press 1 for medical emergencies on coach.
 CATEGORIES:Emergency,Travel
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-N:Local Train GRP;SOS 1512;;;
-FN:SOS 1512 - Mumbai Local Train GRP
+PRODID:-//Emergency Contacts India//EN
+N:Mumbai Local Train;Emergency 1512;;;
+FN:Emergency 1512 - Mumbai Local Trains (GRP)
 ORG:Government Railway Police Maharashtra
-TEL;TYPE=WORK,VOICE:1512
-TEL;TYPE=CELL,VOICE:+919594899991
-NOTE:24x7 emergency helpline for Mumbai suburban local trains (Central, Western & Harbour lines). WhatsApp: 9594899991 or 9833312222.
+TEL;TYPE=CELL,VOICE:1512
+NOTE:24x7 emergency helpline for Mumbai suburban local trains (Central, Western & Harbour lines).
 CATEGORIES:Emergency,Travel,Mumbai
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-N:Women Distress;SOS 103;;;
-FN:SOS 103 - Mumbai Women Helpline
+PRODID:-//Emergency Contacts India//EN
+N:Mumbai Women Distress;Emergency 103;;;
+FN:Emergency 103 - Mumbai Women Distress
 ORG:Mumbai Police
-TEL;TYPE=WORK,VOICE:103
-NOTE:Specialized Mumbai Police safety helpline for women, children, and senior citizens in Mumbai, Thane, and Navi Mumbai.
+TEL;TYPE=CELL,VOICE:103
+NOTE:Specialized Mumbai Police protection cell for women, children, and senior citizens in Mumbai, Thane, and Navi Mumbai.
 CATEGORIES:Emergency,Women Safety,Mumbai
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-N:SHE Teams;SOS 9490616555;;;
-FN:SOS SHE Teams - Hyderabad Women Safety
+PRODID:-//Emergency Contacts India//EN
+N:Hyderabad SHE Teams;Emergency 9490616555;;;
+FN:Emergency 9490616555 - Hyderabad SHE Teams
 ORG:Telangana Police Women Safety Wing
-TEL;TYPE=CELL,VOICE,PREF:+919490616555
-TEL;TYPE=WORK,VOICE:100
-NOTE:Telangana Police SHE Teams for stalking, harassment in public/cabs, and transit emergencies. State WhatsApp: 8712656856.
+TEL;TYPE=CELL,VOICE:+919490616555
+NOTE:Telangana Police SHE Teams for stalking, cab harassment, and transit emergencies in Hyderabad.
 CATEGORIES:Emergency,Women Safety,Hyderabad
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-N:Cyber Fraud;SOS 1930;;;
-FN:SOS 1930 - Cyber Crime Financial Fraud
+PRODID:-//Emergency Contacts India//EN
+N:Cyber Fraud;Emergency 1930;;;
+FN:Emergency 1930 - Cyber / Online Financial Fraud
 ORG:Indian Cyber Crime Coordination Centre (I4C)
-TEL;TYPE=WORK,VOICE:1030
 TEL;TYPE=CELL,VOICE:1930
-NOTE:National Cyber Crime Reporting Portal. Report online banking and UPI fraud immediately within the golden hour to freeze stolen funds.
+NOTE:National Cyber Crime Reporting Portal. Report online banking, card, and UPI fraud immediately within 1 hour to freeze stolen funds.
 CATEGORIES:Emergency,Finance
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-N:Women Helpline;SOS 1091/181;;;
-FN:SOS 1091 / 181 - Women Helpline National
-ORG:Ministry of Women & Child Development
-TEL;TYPE=WORK,VOICE:1091
-TEL;TYPE=HOME,VOICE:181
-TEL;TYPE=CELL,VOICE:+917827170170
-NOTE:1091 for emergency distress. 181 for domestic abuse and legal aid. National Commission for Women (NCW) 24x7: +91 7827170170.
-CATEGORIES:Emergency,Women Safety
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-N:Childline;SOS 1098;;;
-FN:SOS 1098 - Childline India
-ORG:Ministry of Women & Child Development
-TEL;TYPE=WORK,VOICE:1098
-NOTE:24x7 free emergency phone service for children in need of aid and assistance.
-CATEGORIES:Emergency,Child Welfare
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-N:Elderline;SOS 14567;;;
-FN:SOS 14567 - Senior Citizens Elderline
-ORG:Ministry of Social Justice and Empowerment
-TEL;TYPE=WORK,VOICE:14567
-NOTE:Toll-free national helpline for senior citizen rescue, counseling, and elder abuse intervention.
-CATEGORIES:Emergency,Senior Citizens
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-N:Highways Emergency;SOS 1033;;;
-FN:SOS 1033 - National Highways NHAI
-ORG:National Highways Authority of India
-TEL;TYPE=WORK,VOICE:1033
-NOTE:Accidents, ambulance, tow crane, and road emergency assistance across all Indian National Highways.
-CATEGORIES:Emergency,Travel
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-N:BMC Disaster;SOS 1916;;;
-FN:SOS 1916 - BMC Disaster Management Mumbai
-ORG:Brihanmumbai Municipal Corporation
-TEL;TYPE=WORK,VOICE:1916
-TEL;TYPE=HOME,VOICE:02222694727
-NOTE:24x7 emergency helpline for Mumbai urban flooding, waterlogging, tree falls, and building collapse during monsoons.
-CATEGORIES:Emergency,Mumbai
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-N:GHMC Disaster;SOS 04021111111;;;
-FN:SOS 040-21111111 - GHMC Disaster Response Hyderabad
-ORG:Greater Hyderabad Municipal Corporation
-TEL;TYPE=WORK,VOICE:04021111111
-TEL;TYPE=HOME,VOICE:04029555500
-NOTE:Disaster Response Force (DRF) helpline for urban flooding, water stagnation, tree falls, and civic emergencies in Hyderabad.
-CATEGORIES:Emergency,Hyderabad
 END:VCARD
