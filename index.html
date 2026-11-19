@@ -17,11 +17,11 @@
       --text-sub: #94a3b8;
       --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       
-      /* Distinct Emergency Service Colors (Not all red!) */
+      /* Distinct Emergency Service Colors */
       --color-sos: #ef4444;       /* Urgent Red - 112 */
       --color-police: #3b82f6;    /* Tactical Blue - 100 */
       --color-fire: #f97316;      /* Flame Orange - 101 */
-      --color-medical: #10b981;   /* Emerald Green - 102/108 */
+      --color-medical: #10b981;   /* Emerald Green - 102 */
       --color-rail: #0284c7;      /* Express Rail Cyan - 139 */
       --color-local: #8b5cf6;     /* Suburban Purple - 1512 */
       --color-women: #ec4899;     /* Protective Pink/Magenta - 103 */
@@ -196,7 +196,7 @@
       color: var(--text-sub);
     }
 
-    /* Clean Navigation Pills */
+    /* Navigation Pills */
     .tabs-nav {
       display: flex;
       gap: 6px;
@@ -269,17 +269,11 @@
       gap: 8px;
     }
 
-    .section-count {
-      font-size: 0.78rem;
-      color: var(--text-sub);
-      font-weight: 600;
-    }
-
     /* Grid Layout: Visual Action Tiles */
     .tiles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
     }
 
     /* Emergency Tile Card */
@@ -287,7 +281,7 @@
       background: var(--card-bg);
       border: 1px solid var(--surface-border);
       border-radius: 16px;
-      padding: 16px;
+      padding: 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -303,6 +297,7 @@
     .dial-tile:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
+      border-color: var(--tile-color, #3b82f6);
     }
 
     .dial-tile:active {
@@ -320,19 +315,50 @@
       background: var(--tile-color, #3b82f6);
     }
 
-    /* Tile Header: Image + Text */
-    .tile-header {
+    /* PHOTO BANNER for Quick Dial Cards */
+    .tile-img-banner {
+      width: 100%;
+      height: 115px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      display: block;
+      background-color: var(--surface);
+      border: 1px solid var(--surface-border);
+    }
+
+    /* Tile Meta: Title & Subtext */
+    .tile-meta-clean {
+      margin-bottom: 10px;
+    }
+
+    .tile-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.25;
+      letter-spacing: -0.2px;
+    }
+
+    .tile-subtext {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Tile Header for Secondary Tabs (icon avatar) */
+    .tile-header-secondary {
       display: flex;
       align-items: center;
       gap: 12px;
       margin-bottom: 14px;
     }
 
-    /* Large Visual Icon Graphic */
-    .tile-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+    .tile-avatar-sec {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       background: var(--tile-bg, rgba(59, 130, 246, 0.12));
       border: 1px solid var(--tile-border, rgba(59, 130, 246, 0.25));
       display: flex;
@@ -341,35 +367,10 @@
       flex-shrink: 0;
     }
 
-    .tile-avatar svg {
-      width: 28px;
-      height: 28px;
+    .tile-avatar-sec svg {
+      width: 24px;
+      height: 24px;
       fill: var(--tile-color, #3b82f6);
-    }
-
-    .tile-meta {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .tile-name {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--text-main);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.25;
-    }
-
-    .tile-subtext {
-      font-size: 0.76rem;
-      color: var(--text-sub);
-      font-weight: 600;
-      margin-top: 2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     /* Tile Center: Giant Dial Number */
@@ -377,7 +378,7 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       padding: 8px 12px;
       background: var(--surface);
       border-radius: 12px;
@@ -385,7 +386,7 @@
     }
 
     .tile-number {
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       font-weight: 900;
       letter-spacing: -0.5px;
       color: var(--tile-color, var(--text-main));
@@ -425,13 +426,13 @@
       gap: 8px;
       background: var(--tile-color, #3b82f6);
       color: #ffffff;
-      padding: 11px 16px;
-      border-radius: 11px;
+      padding: 12px 16px;
+      border-radius: 12px;
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       letter-spacing: -0.2px;
       border: none;
-      box-shadow: 0 4px 12px var(--tile-shadow, rgba(59, 130, 246, 0.3));
+      box-shadow: 0 4px 14px var(--tile-shadow, rgba(59, 130, 246, 0.3));
     }
 
     .btn-wa-action {
@@ -440,16 +441,16 @@
       justify-content: center;
       background: #25d366;
       color: #ffffff;
-      width: 44px;
-      border-radius: 11px;
+      width: 48px;
+      border-radius: 12px;
       border: none;
       box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
       cursor: pointer;
     }
 
     .btn-wa-action svg {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       fill: #ffffff;
     }
 
@@ -531,7 +532,7 @@
       --tile-shadow: rgba(20, 184, 166, 0.35);
     }
 
-    /* Transit / Cab Safety Quick Alert Box */
+    /* Quick Alert Box */
     .quick-tip-card {
       background: var(--surface);
       border: 1px solid var(--surface-border);
@@ -777,7 +778,7 @@
   <!-- Main Content -->
   <main class="container">
 
-    <!-- TAB 1: QUICK DIAL -->
+    <!-- TAB 1: QUICK DIAL (WITH REAL VISUAL IMAGES) -->
     <section id="tab-quick" class="tab-pane active">
       <div class="section-headline">
         <div class="section-title">⚡ Speed Dial (SOS)</div>
@@ -788,17 +789,10 @@
 
         <!-- 1. Universal 112 -->
         <div class="dial-tile theme-sos" data-query="112 emergency all india national erss police fire ambulance" onclick="handleCardClick(event, '112')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Siren / Beacon SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4zm-2 6V6a2 2 0 1 1 4 0v2h-4z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">All India Emergency</div>
-              <div class="tile-subtext">Police • Fire • Ambulance</div>
-            </div>
+          <img src="images/sos.jpg" alt="National Emergency 112" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">All India Emergency</div>
+            <div class="tile-subtext">Police • Fire • Ambulance</div>
           </div>
           <div class="tile-center">
             <span class="tile-number">112</span>
@@ -811,17 +805,10 @@
 
         <!-- 2. Police 100 -->
         <div class="dial-tile theme-police" data-query="100 police crime security law distress" onclick="handleCardClick(event, '100')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Police Badge SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm4 9H8v-1.5c0-1.33 2.67-2 4-2s4 .67 4 2V16z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">Police Control</div>
-              <div class="tile-subtext">Crime & immediate response</div>
-            </div>
+          <img src="images/police.jpg" alt="Police 100" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">Police Control</div>
+            <div class="tile-subtext">Immediate crime response</div>
           </div>
           <div class="tile-center">
             <span class="tile-number">100</span>
@@ -834,17 +821,10 @@
 
         <!-- 3. Fire Department 101 -->
         <div class="dial-tile theme-fire" data-query="101 fire department brigade rescue flame" onclick="handleCardClick(event, '101')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Fire Flame SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM12 20c-3.31 0-6-2.69-6-6 0-1.53.58-2.93 1.54-4 1.13 1.94 3.09 3.2 5.46 3.2 2.37 0 4.33-1.26 5.46-3.2.96 1.07 1.54 2.47 1.54 4 0 3.31-2.69 6-6 6z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">Fire Department</div>
-              <div class="tile-subtext">Fire breakouts & rescue</div>
-            </div>
+          <img src="images/fire.jpg" alt="Fire Department 101" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">Fire Department</div>
+            <div class="tile-subtext">Fire breakouts & rescue</div>
           </div>
           <div class="tile-center">
             <span class="tile-number">101</span>
@@ -857,17 +837,10 @@
 
         <!-- 4. Ambulance 102 -->
         <div class="dial-tile theme-medical" data-query="102 108 ambulance medical health hospital doctor trauma" onclick="handleCardClick(event, '102')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Medical Cross Pulse SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M19 10.5h-4.5V6a1.5 1.5 0 0 0-3 0v4.5H7a1.5 1.5 0 0 0 0 3h4.5V18a1.5 1.5 0 0 0 3 0v-4.5H19a1.5 1.5 0 0 0 0-3z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">Ambulance Emergency</div>
-              <div class="tile-subtext">Medical & hospital transit</div>
-            </div>
+          <img src="images/ambulance.jpg" alt="Ambulance Emergency 102" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">Ambulance Emergency</div>
+            <div class="tile-subtext">Medical & hospital transit</div>
           </div>
           <div class="tile-center">
             <span class="tile-number">102</span>
@@ -880,17 +853,10 @@
 
         <!-- 5. Indian Railways 139 -->
         <div class="dial-tile theme-rail" data-query="139 indian railways railmadad train rpf passenger" onclick="handleCardClick(event, '139')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Express Train SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zm0 2c3.5 0 6 .5 6 2H6c0-1.5 2.5-2 6-2zm-6 4h12v4H6V8zm2 8c-.83 0-1.5-.67-1.5-1.5S7.17 13 8 13s1.5.67 1.5 1.5S8.83 16 8 16zm8 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">Indian Railways (RailMadad)</div>
-              <div class="tile-subtext">Press 3: RPF • Press 1: Medical</div>
-            </div>
+          <img src="images/train.jpg" alt="Indian Railways RailMadad 139" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">Indian Railways (RailMadad)</div>
+            <div class="tile-subtext">Press 3: RPF • Press 1: Medical</div>
           </div>
           <div class="tile-center">
             <span class="tile-number">139</span>
@@ -903,17 +869,10 @@
 
         <!-- 6. Mumbai Local Train 1512 -->
         <div class="dial-tile theme-local" data-query="1512 mumbai local train grp central western railway" onclick="handleCardClick(event, '1512')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Suburban Train SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zm8-12.5c3.5 0 6 .5 6 2H6c0-1.5 2.5-2 6-2zm-6 4h12v5H6V7z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">Mumbai Local Train (GRP)</div>
-              <div class="tile-subtext">Suburban railway security</div>
-            </div>
+          <img src="images/mumbai_local.jpg" alt="Mumbai Local Train GRP 1512" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">Mumbai Local Train (GRP)</div>
+            <div class="tile-subtext">Suburban railway security</div>
           </div>
           <div class="tile-center">
             <span class="tile-number">1512</span>
@@ -929,17 +888,10 @@
 
         <!-- 7. Mumbai Women Distress 103 -->
         <div class="dial-tile theme-women" data-query="103 mumbai women distress safety harassment cab auto" onclick="handleCardClick(event, '103')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Guardian Shield SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">Mumbai Women Distress</div>
-              <div class="tile-subtext">Cabs • Transit • Safety</div>
-            </div>
+          <img src="images/women_safety.jpg" alt="Mumbai Women Distress 103" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">Mumbai Women Distress</div>
+            <div class="tile-subtext">Cabs • Transit • Safety</div>
           </div>
           <div class="tile-center">
             <span class="tile-number">103</span>
@@ -952,17 +904,10 @@
 
         <!-- 8. Hyderabad SHE Teams -->
         <div class="dial-tile theme-she" data-query="9490616555 hyderabad she teams women distress cab stalking harassment telangana" onclick="handleCardClick(event, '9490616555')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Police Star Shield SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 11.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">Hyderabad SHE Teams</div>
-              <div class="tile-subtext">Women safety & cab rescue</div>
-            </div>
+          <img src="images/she_teams.jpg" alt="Hyderabad SHE Teams" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">Hyderabad SHE Teams</div>
+            <div class="tile-subtext">Women safety & cab rescue</div>
           </div>
           <div class="tile-center">
             <span class="tile-number" style="font-size: 1.3rem;">94906 16555</span>
@@ -978,17 +923,10 @@
 
         <!-- 9. Cyber Fraud 1930 -->
         <div class="dial-tile theme-cyber" data-query="1930 cyber fraud bank upi card online theft" onclick="handleCardClick(event, '1930')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Padlock Shield SVG -->
-              <svg viewBox="0 0 24 24">
-                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-              </svg>
-            </div>
-            <div class="tile-meta">
-              <div class="tile-name">Cyber Financial Fraud</div>
-              <div class="tile-subtext">Freeze UPI & bank fraud</div>
-            </div>
+          <img src="images/cyber_fraud.jpg" alt="Cyber Financial Fraud 1930" class="tile-img-banner" loading="lazy">
+          <div class="tile-meta-clean">
+            <div class="tile-name">Cyber Financial Fraud</div>
+            <div class="tile-subtext">Freeze UPI & bank fraud</div>
           </div>
           <div class="tile-center">
             <span class="tile-number">1930</span>
@@ -1019,11 +957,11 @@
       <div class="tiles-grid">
         <!-- RailMadad 139 -->
         <div class="dial-tile theme-rail" data-query="139 railmadad indian railways rpf security medical" onclick="handleCardClick(event, '139')">
-          <div class="tile-header">
-            <div class="tile-avatar">
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec">
               <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zm0 2c3.5 0 6 .5 6 2H6c0-1.5 2.5-2 6-2zm-6 4h12v4H6V8zm2 8c-.83 0-1.5-.67-1.5-1.5S7.17 13 8 13s1.5.67 1.5 1.5S8.83 16 8 16zm8 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
             </div>
-            <div class="tile-meta">
+            <div class="tile-meta-clean">
               <div class="tile-name">Indian Railways (RailMadad)</div>
               <div class="tile-subtext">Option 3: Security • Option 1: Doctor</div>
             </div>
@@ -1034,11 +972,11 @@
 
         <!-- Mumbai Local 1512 -->
         <div class="dial-tile theme-local" data-query="1512 mumbai local suburban train grp railway" onclick="handleCardClick(event, '1512')">
-          <div class="tile-header">
-            <div class="tile-avatar">
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec">
               <svg viewBox="0 0 24 24"><path d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zm8-12.5c3.5 0 6 .5 6 2H6c0-1.5 2.5-2 6-2zm-6 4h12v5H6V7z"/></svg>
             </div>
-            <div class="tile-meta">
+            <div class="tile-meta-clean">
               <div class="tile-name">Mumbai Railway Police (GRP)</div>
               <div class="tile-subtext">Local trains & stations</div>
             </div>
@@ -1049,11 +987,11 @@
 
         <!-- Mumbai Metro Line 1 -->
         <div class="dial-tile theme-rail" data-query="02230310900 mumbai metro line 1 versova andheri ghatkopar" onclick="handleCardClick(event, '02230310900')">
-          <div class="tile-header">
-            <div class="tile-avatar">
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec">
               <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4z"/></svg>
             </div>
-            <div class="tile-meta">
+            <div class="tile-meta-clean">
               <div class="tile-name">Mumbai Metro Line 1</div>
               <div class="tile-subtext">Versova - Andheri - Ghatkopar</div>
             </div>
@@ -1064,11 +1002,11 @@
 
         <!-- Mumbai Metro 2A & 7 -->
         <div class="dial-tile theme-fire" data-query="18008890505 18008890808 mumbai metro line 2a line 7 mmmocl" onclick="handleCardClick(event, '18008890505')">
-          <div class="tile-header">
-            <div class="tile-avatar">
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec">
               <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4z"/></svg>
             </div>
-            <div class="tile-meta">
+            <div class="tile-meta-clean">
               <div class="tile-name">Mumbai Metro 2A & 7</div>
               <div class="tile-subtext">Women / Seniors: 1800 889 0808</div>
             </div>
@@ -1079,11 +1017,11 @@
 
         <!-- Mumbai Metro Line 3 -->
         <div class="dial-tile theme-medical" data-query="1800220220 mumbai metro aqua line 3 colaba bandra seepz aarey" onclick="handleCardClick(event, '1800220220')">
-          <div class="tile-header">
-            <div class="tile-avatar">
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec">
               <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4z"/></svg>
             </div>
-            <div class="tile-meta">
+            <div class="tile-meta-clean">
               <div class="tile-name">Mumbai Metro Line 3 (Aqua)</div>
               <div class="tile-subtext">Colaba - SEEPZ Underground</div>
             </div>
@@ -1094,11 +1032,11 @@
 
         <!-- Hyderabad Metro -->
         <div class="dial-tile theme-she" data-query="04023332555 hyderabad metro rail lt metro transit" onclick="handleCardClick(event, '04023332555')">
-          <div class="tile-header">
-            <div class="tile-avatar">
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec">
               <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4z"/></svg>
             </div>
-            <div class="tile-meta">
+            <div class="tile-meta-clean">
               <div class="tile-name">Hyderabad Metro Rail</div>
               <div class="tile-subtext">Customer Care & Security</div>
             </div>
@@ -1125,9 +1063,9 @@
       <div class="tiles-grid">
         <!-- Mumbai Police -->
         <div class="dial-tile theme-police" data-query="100 02222620111 mumbai police control crime" onclick="handleCardClick(event, '100')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Mumbai Police Control</div><div class="tile-subtext">Citywide Emergency</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Mumbai Police Control</div><div class="tile-subtext">Citywide Emergency</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">100</span><button class="btn-copy-num" onclick="copyNumber(event, '100')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:100" class="btn-call-action">📞 Call 100</a></div>
@@ -1135,9 +1073,9 @@
 
         <!-- Mumbai Women 103 -->
         <div class="dial-tile theme-women" data-query="103 mumbai women helpline distress child senior" onclick="handleCardClick(event, '103')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Mumbai Women Helpline</div><div class="tile-subtext">Specialized Police Cell</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Mumbai Women Helpline</div><div class="tile-subtext">Specialized Police Cell</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">103</span><button class="btn-copy-num" onclick="copyNumber(event, '103')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:103" class="btn-call-action">📞 Call 103</a></div>
@@ -1145,12 +1083,9 @@
 
         <!-- BMC Disaster 1916 -->
         <div class="dial-tile theme-disaster" data-query="1916 bmc disaster monsoon flood tree collapse" onclick="handleCardClick(event, '1916')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Water Wave / Disaster SVG -->
-              <svg viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2 0 .74-.4 1.38-1 1.72v12.56c.6.34 1 .98 1 1.72 0 1.1-.9 2-2 2s-2-.9-2-2c0-.74.4-1.38 1-1.72V5.72c-.6-.34-1-.98-1-1.72 0-1.1.9-2 2-2zm-6 8c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2s-2-.9-2-2v-6c0-1.1.9-2 2-2zm12 0c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2s-2-.9-2-2v-6c0-1.1.9-2 2-2z"/></svg>
-            </div>
-            <div class="tile-meta"><div class="tile-name">BMC Disaster Management</div><div class="tile-subtext">Rains • Flooding • Tree falls</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2 0 .74-.4 1.38-1 1.72v12.56c.6.34 1 .98 1 1.72 0 1.1-.9 2-2 2s-2-.9-2-2c0-.74.4-1.38 1-1.72V5.72c-.6-.34-1-.98-1-1.72 0-1.1.9-2 2-2z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">BMC Disaster Management</div><div class="tile-subtext">Rains • Flooding • Tree falls</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">1916</span><button class="btn-copy-num" onclick="copyNumber(event, '1916')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:1916" class="btn-call-action">📞 Call 1916</a></div>
@@ -1158,9 +1093,9 @@
 
         <!-- Mumbai Police WhatsApp -->
         <div class="dial-tile theme-medical" data-query="8454999999 mumbai police whatsapp traffic complaints" onclick="handleCardClick(event, '8454999999')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Mumbai Police WhatsApp</div><div class="tile-subtext">Send tips & complaints</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Mumbai Police WhatsApp</div><div class="tile-subtext">Send tips & complaints</div></div>
           </div>
           <div class="tile-center"><span class="tile-number" style="font-size: 1.3rem;">84549 99999</span><button class="btn-copy-num" onclick="copyNumber(event, '8454999999')">📋 Copy</button></div>
           <div class="tile-actions">
@@ -1170,9 +1105,9 @@
 
         <!-- Mumbai Traffic -->
         <div class="dial-tile theme-police" data-query="02224937747 mumbai traffic auto taxi refusal towing" onclick="handleCardClick(event, '02224937747')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Mumbai Traffic Police</div><div class="tile-subtext">Taxi refusals & towing</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Mumbai Traffic Police</div><div class="tile-subtext">Taxi refusals & towing</div></div>
           </div>
           <div class="tile-center"><span class="tile-number" style="font-size: 1.25rem;">022-24937747</span><button class="btn-copy-num" onclick="copyNumber(event, '02224937747')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:02224937747" class="btn-call-action">📞 Call Traffic</a></div>
@@ -1180,9 +1115,9 @@
 
         <!-- Thane Police -->
         <div class="dial-tile theme-police" data-query="02225443535 thane police suburban control" onclick="handleCardClick(event, '02225443535')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Thane Police Control</div><div class="tile-subtext">Thane Commissionerate</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Thane Police Control</div><div class="tile-subtext">Thane Commissionerate</div></div>
           </div>
           <div class="tile-center"><span class="tile-number" style="font-size: 1.25rem;">022-25443535</span><button class="btn-copy-num" onclick="copyNumber(event, '02225443535')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:02225443535" class="btn-call-action">📞 Call Thane</a></div>
@@ -1207,9 +1142,9 @@
       <div class="tiles-grid">
         <!-- Telangana Dial 100 -->
         <div class="dial-tile theme-police" data-query="100 hyderabad telangana police blue colts patrol" onclick="handleCardClick(event, '100')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Telangana Police (Dial 100)</div><div class="tile-subtext">GPS Patrol Response</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Telangana Police (Dial 100)</div><div class="tile-subtext">GPS Patrol Response</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">100</span><button class="btn-copy-num" onclick="copyNumber(event, '100')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:100" class="btn-call-action">📞 Call 100</a></div>
@@ -1217,9 +1152,9 @@
 
         <!-- SHE Teams Direct -->
         <div class="dial-tile theme-she" data-query="9490616555 hyderabad she teams women eve teasing stalking" onclick="handleCardClick(event, '9490616555')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Hyderabad SHE Teams</div><div class="tile-subtext">Anti-Harassment Wing</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Hyderabad SHE Teams</div><div class="tile-subtext">Anti-Harassment Wing</div></div>
           </div>
           <div class="tile-center"><span class="tile-number" style="font-size: 1.3rem;">94906 16555</span><button class="btn-copy-num" onclick="copyNumber(event, '9490616555')">📋 Copy</button></div>
           <div class="tile-actions">
@@ -1232,9 +1167,9 @@
 
         <!-- State SHE WhatsApp -->
         <div class="dial-tile theme-medical" data-query="8712656856 state she teams whatsapp telangana video proof" onclick="handleCardClick(event, '8712656856')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">State SHE Teams WhatsApp</div><div class="tile-subtext">Send Video / Photo Proof</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">State SHE Teams WhatsApp</div><div class="tile-subtext">Send Video / Photo Proof</div></div>
           </div>
           <div class="tile-center"><span class="tile-number" style="font-size: 1.3rem;">87126 56856</span><button class="btn-copy-num" onclick="copyNumber(event, '8712656856')">📋 Copy</button></div>
           <div class="tile-actions">
@@ -1244,9 +1179,9 @@
 
         <!-- Cyberabad IT Corridor -->
         <div class="dial-tile theme-rail" data-query="9490617100 cyberabad hitec city gachibowli madhapur police it" onclick="handleCardClick(event, '9490617100')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Cyberabad Police (IT Belt)</div><div class="tile-subtext">Hitec City & Gachibowli</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Cyberabad Police (IT Belt)</div><div class="tile-subtext">Hitec City & Gachibowli</div></div>
           </div>
           <div class="tile-center"><span class="tile-number" style="font-size: 1.3rem;">94906 17100</span><button class="btn-copy-num" onclick="copyNumber(event, '9490617100')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:9490617100" class="btn-call-action">📞 Call Cyberabad</a></div>
@@ -1254,9 +1189,9 @@
 
         <!-- Cyberabad Women Safety Wing -->
         <div class="dial-tile theme-women" data-query="9490617444 cyberabad women safety wing it late shift commute" onclick="handleCardClick(event, '9490617444')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">IT Women Safety Wing</div><div class="tile-subtext">Late Shift & Cab Security</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">IT Women Safety Wing</div><div class="tile-subtext">Late Shift & Cab Security</div></div>
           </div>
           <div class="tile-center"><span class="tile-number" style="font-size: 1.3rem;">94906 17444</span><button class="btn-copy-num" onclick="copyNumber(event, '9490617444')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:9490617444" class="btn-call-action">📞 Call IT Safety</a></div>
@@ -1264,9 +1199,9 @@
 
         <!-- GHMC DRF -->
         <div class="dial-tile theme-disaster" data-query="04021111111 ghmc drf flood disaster rain tree fallen hyderabad" onclick="handleCardClick(event, '04021111111')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2 0 .74-.4 1.38-1 1.72v12.56c.6.34 1 .98 1 1.72 0 1.1-.9 2-2 2s-2-.9-2-2c0-.74.4-1.38 1-1.72V5.72c-.6-.34-1-.98-1-1.72 0-1.1.9-2 2-2z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">GHMC Disaster Response (DRF)</div><div class="tile-subtext">Floods & Urban Emergencies</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2 0 .74-.4 1.38-1 1.72v12.56c.6.34 1 .98 1 1.72 0 1.1-.9 2-2 2s-2-.9-2-2c0-.74.4-1.38 1-1.72V5.72c-.6-.34-1-.98-1-1.72 0-1.1.9-2 2-2z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">GHMC Disaster Response (DRF)</div><div class="tile-subtext">Floods & Urban Emergencies</div></div>
           </div>
           <div class="tile-center"><span class="tile-number" style="font-size: 1.25rem;">040-21111111</span><button class="btn-copy-num" onclick="copyNumber(event, '04021111111')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:04021111111" class="btn-call-action">📞 Call GHMC</a></div>
@@ -1284,9 +1219,9 @@
       <div class="tiles-grid">
         <!-- National Women Helpline -->
         <div class="dial-tile theme-women" data-query="1091 181 national women helpline distress" onclick="handleCardClick(event, '1091')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">National Women Helpline</div><div class="tile-subtext">24×7 Distress & Legal Aid</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">National Women Helpline</div><div class="tile-subtext">24×7 Distress & Legal Aid</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">1091</span><button class="btn-copy-num" onclick="copyNumber(event, '1091')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:1091" class="btn-call-action">📞 Call 1091</a></div>
@@ -1294,12 +1229,9 @@
 
         <!-- Childline 1098 -->
         <div class="dial-tile theme-medical" data-query="1098 childline children lost abuse rescue" onclick="handleCardClick(event, '1098')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Child / Person SVG -->
-              <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            </div>
-            <div class="tile-meta"><div class="tile-name">Childline India</div><div class="tile-subtext">Child Protection & Aid</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Childline India</div><div class="tile-subtext">Child Protection & Aid</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">1098</span><button class="btn-copy-num" onclick="copyNumber(event, '1098')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:1098" class="btn-call-action">📞 Call 1098</a></div>
@@ -1307,9 +1239,9 @@
 
         <!-- Elderline 14567 -->
         <div class="dial-tile theme-police" data-query="14567 elderline senior citizen elderly abuse" onclick="handleCardClick(event, '14567')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 12c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Senior Citizens (Elderline)</div><div class="tile-subtext">Abuse Rescue & Support</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 12c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Senior Citizens (Elderline)</div><div class="tile-subtext">Abuse Rescue & Support</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">14567</span><button class="btn-copy-num" onclick="copyNumber(event, '14567')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:14567" class="btn-call-action">📞 Call 14567</a></div>
@@ -1317,12 +1249,9 @@
 
         <!-- Highway 1033 -->
         <div class="dial-tile theme-highway" data-query="1033 nhai highway accident ambulance breakdown crane" onclick="handleCardClick(event, '1033')">
-          <div class="tile-header">
-            <div class="tile-avatar">
-              <!-- Road / Highway SVG -->
-              <svg viewBox="0 0 24 24"><path d="M18.1 4H5.9L2 20h20l-3.9-16zM11 16H9l.5-3h2l-.5 3zm1-6H9.7l.5-3h2.1l-.3 3z"/></svg>
-            </div>
-            <div class="tile-meta"><div class="tile-name">National Highways (NHAI)</div><div class="tile-subtext">Breakdown & Accident Towing</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M18.1 4H5.9L2 20h20l-3.9-16zM11 16H9l.5-3h2l-.5 3zm1-6H9.7l.5-3h2.1l-.3 3z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">National Highways (NHAI)</div><div class="tile-subtext">Breakdown & Accident Towing</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">1033</span><button class="btn-copy-num" onclick="copyNumber(event, '1033')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:1033" class="btn-call-action">📞 Call 1033</a></div>
@@ -1330,9 +1259,9 @@
 
         <!-- Tele-MANAS 14416 -->
         <div class="dial-tile theme-medical" data-query="14416 telemanas mental health counseling crisis" onclick="handleCardClick(event, '14416')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">Tele-MANAS Mental Health</div><div class="tile-subtext">Crisis Support & Counseling</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">Tele-MANAS Mental Health</div><div class="tile-subtext">Crisis Support & Counseling</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">14416</span><button class="btn-copy-num" onclick="copyNumber(event, '14416')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:14416" class="btn-call-action">📞 Call 14416</a></div>
@@ -1340,9 +1269,9 @@
 
         <!-- NDRF 1078 -->
         <div class="dial-tile theme-fire" data-query="1078 ndrf disaster calamity cyclone flood earthquake" onclick="handleCardClick(event, '1078')">
-          <div class="tile-header">
-            <div class="tile-avatar"><svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2V8h2v4z"/></svg></div>
-            <div class="tile-meta"><div class="tile-name">NDRF Disaster Calamity</div><div class="tile-subtext">Major National Calamities</div></div>
+          <div class="tile-header-secondary">
+            <div class="tile-avatar-sec"><svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2V8h2v4z"/></svg></div>
+            <div class="tile-meta-clean"><div class="tile-name">NDRF Disaster Calamity</div><div class="tile-subtext">Major National Calamities</div></div>
           </div>
           <div class="tile-center"><span class="tile-number">1078</span><button class="btn-copy-num" onclick="copyNumber(event, '1078')">📋 Copy</button></div>
           <div class="tile-actions"><a href="tel:1078" class="btn-call-action">📞 Call 1078</a></div>
@@ -1433,7 +1362,6 @@
 
     // Tap Anywhere on Card to Dial
     function handleCardClick(event, number) {
-      // Don't trigger if user clicked Copy button or WhatsApp link
       if (event.target.closest('.btn-copy-num') || event.target.closest('.btn-wa-action')) {
         return;
       }
