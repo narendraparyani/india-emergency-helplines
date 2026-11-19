@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Emergency Helplines India | Mumbai, Hyderabad & Transit SOS Directory</title>
+  <meta name="description" content="Instant tap-to-call directory of critical emergency numbers for India, Mumbai, Hyderabad, local trains, metro, and cab safety.">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Emergency Helplines India - Rapid SOS Directory">
+  <meta property="og:description" content="One-tap calling for Police, Fire, Ambulance, Railways 139, Mumbai Local 1512, Women Helplines 103, and Hyderabad SHE Teams.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-border: #1f293d;
+      --card-bg: #141e33;
+      --card-hover: #1a2744;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-red: #ef4444;
+      --accent-red-hover: #dc2626;
+      --accent-amber: #f59e0b;
+      --accent-blue: #3b82f6;
+      --accent-green: #10b981;
+      --accent-purple: #a855f7;
+      --badge-bg: rgba(239, 68, 68, 0.15);
+      --badge-text: #fca5a5;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    [data-theme="light"] {
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --surface-border: #e2e8f0;
+      --card-bg: #ffffff;
+      --card-hover: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --badge-bg: rgba(239, 68, 68, 0.1);
+      --badge-text: #b91c1c;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      padding-bottom: 90px; /* Space for bottom fixed bar */
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Header */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-icon {
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      border-color: var(--accent-red);
+    }
+
+    .btn-vcf {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+      white-space: nowrap;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .btn-vcf:active {
+      transform: scale(0.97);
+    }
+
+    /* Search Box */
+    .search-wrapper {
+      padding: 8px 0 12px 0;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      padding: 10px 16px 10px 40px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-red);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* Tabs Bar */
+    .tabs-bar {
+      display: flex;
+      overflow-x: auto;
+      gap: 6px;
+      padding: 4px 0 10px 0;
+      scrollbar-width: none;
+    }
+
+    .tabs-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--accent-red);
+      color: #ffffff;
+      border-color: var(--accent-red);
+      box-shadow: 0 2px 12px rgba(239, 68, 68, 0.35);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 20px 0;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Banner for Tab 1 */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(37, 99, 235, 0.08));
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .hero-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    /* Grid of Helpline Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .card:hover {
+      border-color: rgba(239, 68, 68, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-badge.amber {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+    }
+
+    .card-badge.blue {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+    }
+
+    .card-badge.green {
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+    }
+
+    .card-badge.purple {
+      background: rgba(168, 85, 247, 0.15);
+      color: #d8b4fe;
+    }
+
+    .card-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    .card-number-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px dashed var(--surface-border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+    }
+
+    .card-number {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--accent-red);
+      font-feature-settings: "tnum";
+    }
+
+    .btn-copy {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.78rem;
+      padding: 4px 6px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.15s;
+    }
+
+    .btn-copy:hover {
+      color: var(--text-main);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-dial {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--accent-red), var(--accent-red-hover));
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 11px 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .btn-dial:active {
+      transform: scale(0.98);
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #25d366;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: transform 0.1s;
+    }
+
+    .btn-whatsapp:active {
+      transform: scale(0.98);
+    }
+
+    /* Section Subheaders */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 24px 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Safety Tips Box */
+    .info-box {
+      background: var(--card-bg);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .info-box strong {
+      color: var(--text-main);
+    }
+
+    .info-box ul {
+      margin-top: 8px;
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    /* Fixed Bottom Action Bar */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--surface-border);
+      padding: 10px 16px;
+      z-index: 99;
+      backdrop-filter: blur(12px);
+    }
+
+    .bottom-bar-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bottom-sos-btn {
+      flex: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #ef4444;
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 16px rgba(239, 68, 68, 0.5);
+      animation: pulseSos 2.5s infinite;
+    }
+
+    @keyframes pulseSos {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    .bottom-share-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+
+    /* Modal for Poster */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      max-width: 480px;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      max-height: 90vh;
+    }
+
+    .modal-header {
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .modal-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 16px;
+      overflow-y: auto;
+      text-align: center;
+    }
+
+    .modal-body img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .modal-footer {
+      padding: 12px 16px;
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      gap: 10px;
+    }
+
+    .modal-footer a, .modal-footer button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 85px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #10b981;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 10000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .header-actions .btn-vcf span {
+        display: none;
+      }
+      .brand-text h1 {
+        font-size: 1.02rem;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Number copied to clipboard!</div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <a href="#home" class="brand" onclick="switchTab('tab-home')">
+          <div class="brand-icon">🚨</div>
+          <div class="brand-text">
+            <h1>India SOS Helplines</h1>
+            <p>One-Tap Emergency Directory</p>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a href="emergency_contacts_india.vcf" download="emergency_contacts_india.vcf" class="btn-vcf" title="Download contacts for your phone">
+            <span>📇</span> <span>Save to Contacts (.VCF)</span>
+          </a>
+          <button id="themeToggle" class="btn-icon" title="Toggle Dark/Light Mode">🌙</button>
+        </div>
+      </div>
+
+      <!-- Search Input -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search helpline, city, train, metro, women safety..." autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="tabs-bar">
+        <button class="tab-btn active" data-tab="tab-home">⚡ Speed Dial (SOS)</button>
+        <button class="tab-btn" data-tab="tab-panindia">🇮🇳 Pan-India</button>
+        <button class="tab-btn" data-tab="tab-transit">🚆 Transit & Travel</button>
+        <button class="tab-btn" data-tab="tab-mumbai">🌊 Mumbai City</button>
+        <button class="tab-btn" data-tab="tab-hyderabad">🏛️ Hyderabad City</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+
+    <!-- TAB 1: SPEED DIAL (HOME) -->
+    <section id="tab-home" class="tab-content active">
+      
+      <!-- Top Action Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-header">
+          <div>
+            <div class="hero-title">⚡ Most Critical Emergency Numbers</div>
+            <div class="hero-desc">Tap any red button to instantly dial on your smartphone. Save all contacts directly to your phone.</div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn-secondary" onclick="openPosterModal()">
+              🖼️ View Poster
+            </button>
+            <a href="emergency_contacts_india.vcf" download class="btn-secondary">
+              📥 Download .VCF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core 9 Numbers Grid -->
+      <div class="cards-grid" id="homeCards">
+
+        <!-- 1. Everywhere in India 112 -->
+        <div class="card" data-tags="india 112 erss police fire ambulance emergency all national">
+          <div>
+            <div class="card-top">
+              <span class="card-badge">Universal Emergency</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7 • Free</span>
+            </div>
+            <div class="card-name">Everywhere in India (ERSS)</div>
+            <div class="card-desc">Single nationwide unified emergency response. Integrates Police, Fire, and Ambulance. Dialable even with screen locked or without SIM.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">112</span>
+              <button class="btn-copy" onclick="copyNum('112')">📋 Copy</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:112" class="btn-dial">📞 Tap to Call 112</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Police 100 -->
+        <div class="card" data-tags="police 100 crime incident emergency">
+          <div>
+            <div class="card-top">
+              <span class="card-badge blue">Law & Order</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">Police Control Room</div>
+            <div class="card-desc">Immediate police assistance, crime reporting, accident response, and general distress across India.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">100</span>
+              <button class="btn-copy" onclick="copyNum('100')">📋 Copy</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:100" class="btn-dial">📞 Tap to Call 100</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Fire Department 101 -->
+        <div class="card" data-tags="fire 101 brigade rescue building collapse">
+          <div>
+            <div class="card-top">
+              <span class="card-badge amber">Fire & Rescue</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">Fire Department</div>
+            <div class="card-desc">Fire emergencies, trapped individuals, gas leaks, and critical building collapse rescue operations.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">101</span>
+              <button class="btn-copy" onclick="copyNum('101')">📋 Copy</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:101" class="btn-dial">📞 Tap to Call 101</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Ambulance 102 / 108 -->
+        <div class="card" data-tags="ambulance 102 108 medical hospital trauma maternity health">
+          <div>
+            <div class="card-top">
+              <span class="card-badge green">Medical SOS</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">Ambulance & Medical Emergency</div>
+            <div class="card-desc">Dial 108 for critical emergency & trauma response; Dial 102 for maternity, neonatal, and patient transit.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">108 / 102</span>
+              <button class="btn-copy" onclick="copyNum('108')">📋 Copy 108</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:108" class="btn-dial">📞 Call 108</a>
+              <a href="tel:102" class="btn-secondary" style="padding: 11px 14px; text-decoration: none;">Call 102</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. In Indian Railways 139 -->
+        <div class="card" data-tags="railways train 139 railmadad rpf passenger reserved">
+          <div>
+            <div class="card-top">
+              <span class="card-badge blue">Indian Railways</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">In Indian Railways (RailMadad)</div>
+            <div class="card-desc">All-in-one passenger helpline. <strong>Press 3</strong> for Security & RPF boarding team; <strong>Press 1</strong> for medical emergency on coach.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">139</span>
+              <button class="btn-copy" onclick="copyNum('139')">📋 Copy</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:139" class="btn-dial">📞 Tap to Call 139</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. In Mumbai Local Trains 1512 -->
+        <div class="card" data-tags="mumbai local train grp 1512 central western harbour suburban railway">
+          <div>
+            <div class="card-top">
+              <span class="card-badge purple">Mumbai Local</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">In Mumbai Local Trains (GRP)</div>
+            <div class="card-desc">Government Railway Police control for suburban trains (Central, Western, Harbour lines). Also accepts WhatsApp with coach/direction info.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">1512</span>
+              <button class="btn-copy" onclick="copyNum('1512')">📋 Copy</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:1512" class="btn-dial">📞 Call 1512</a>
+              <a href="https://wa.me/919594899991?text=Emergency%20in%20Mumbai%20Local%20Train" target="_blank" class="btn-whatsapp" title="WhatsApp GRP">💬</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. In Mumbai Women Distress 103 -->
+        <div class="card" data-tags="mumbai women distress 103 safety police harassment cab auto">
+          <div>
+            <div class="card-top">
+              <span class="card-badge">Mumbai Safety</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">In Mumbai (Women Distress)</div>
+            <div class="card-desc">Dedicated Mumbai Police cell for women, children, and seniors. Call if feeling unsafe in taxis, autos, public transit, or at home.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">103</span>
+              <button class="btn-copy" onclick="copyNum('103')">📋 Copy</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:103" class="btn-dial">📞 Tap to Call 103</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Hyderabad SHE Teams 94906 16555 -->
+        <div class="card" data-tags="hyderabad women she teams 9490616555 distress cab stalking safety telangana">
+          <div>
+            <div class="card-top">
+              <span class="card-badge green">Hyderabad Safety</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">Hyderabad (Women / SHE Teams)</div>
+            <div class="card-desc">Telangana Police Women Safety Wing. Rapid response for eve-teasing, cab harassment, stalking, and transit distress.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">94906 16555</span>
+              <button class="btn-copy" onclick="copyNum('9490616555')">📋 Copy</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:9490616555" class="btn-dial">📞 Call SHE Teams</a>
+              <a href="https://wa.me/919490616555?text=Urgent%20Assistance%20Needed%20Hyderabad" target="_blank" class="btn-whatsapp" title="WhatsApp SHE Teams">💬</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Cyber Fraud 1930 -->
+        <div class="card" data-tags="cyber crime fraud 1930 bank upi online theft scam money">
+          <div>
+            <div class="card-top">
+              <span class="card-badge amber">Cyber Crime</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Golden Hour</span>
+            </div>
+            <div class="card-name">Cyber / Online Financial Fraud</div>
+            <div class="card-desc">National Cyber Crime Reporting Portal. Report unauthorized UPI, card, or netbanking debit within the "golden hour" to freeze funds.</div>
+          </div>
+          <div>
+            <div class="card-number-row">
+              <span class="card-number">1930</span>
+              <button class="btn-copy" onclick="copyNum('1930')">📋 Copy</button>
+            </div>
+            <div class="card-actions">
+              <a href="tel:1930" class="btn-dial">📞 Tap to Call 1930</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TAB 2: PAN-INDIA FULL DIRECTORY -->
+    <section id="tab-panindia" class="tab-content">
+      <div class="section-title">🇮🇳 Pan-India Essential Emergency Services</div>
+      <div class="cards-grid">
+
+        <div class="card" data-tags="panindia 112 emergency erss police fire ambulance">
+          <div>
+            <div class="card-top">
+              <span class="card-badge">National SOS</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">National Emergency Response (ERSS)</div>
+            <div class="card-desc">Unified emergency number combining Police, Fire, and Ambulance throughout India.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">112</span><button class="btn-copy" onclick="copyNum('112')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:112" class="btn-dial">📞 Call 112</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="panindia 1091 women national helpline distress">
+          <div>
+            <div class="card-top">
+              <span class="card-badge">Women SOS</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">National Women Helpline</div>
+            <div class="card-desc">Dedicated 24x7 crisis helpline for women facing violence, harassment, or threat.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">1091 / 181</span><button class="btn-copy" onclick="copyNum('1091')">📋 Copy 1091</button></div>
+            <div class="card-actions">
+              <a href="tel:1091" class="btn-dial">📞 Call 1091</a>
+              <a href="tel:181" class="btn-secondary" style="padding: 11px 14px; text-decoration: none;">Call 181</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="panindia ncw 7827170170 women commission violence">
+          <div>
+            <div class="card-top">
+              <span class="card-badge purple">NCW Helpline</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">National Commission for Women</div>
+            <div class="card-desc">Round-the-clock emergency desk for women facing domestic violence, abuse, or distress.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">7827170170</span><button class="btn-copy" onclick="copyNum('7827170170')">📋 Copy</button></div>
+            <div class="card-actions">
+              <a href="tel:7827170170" class="btn-dial">📞 Call NCW</a>
+              <a href="https://wa.me/917827170170" target="_blank" class="btn-whatsapp">💬</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="panindia 1098 childline children lost abuse">
+          <div>
+            <div class="card-top">
+              <span class="card-badge green">Child Protection</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">Childline India</div>
+            <div class="card-desc">Free 24x7 emergency helpline for children in need of protection, care, and rescue.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">1098</span><button class="btn-copy" onclick="copyNum('1098')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:1098" class="btn-dial">📞 Call 1098</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="panindia 14567 elderline senior citizen elderly">
+          <div>
+            <div class="card-top">
+              <span class="card-badge blue">Elder Support</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">08:00 - 20:00</span>
+            </div>
+            <div class="card-name">Elderline (Senior Citizens)</div>
+            <div class="card-desc">National helpline providing assistance, rescue from abuse, and counseling for seniors.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">14567</span><button class="btn-copy" onclick="copyNum('14567')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:14567" class="btn-dial">📞 Call 14567</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="panindia 1033 nhai highway accident ambulance crane towing">
+          <div>
+            <div class="card-top">
+              <span class="card-badge amber">Highways</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7 Toll-Free</span>
+            </div>
+            <div class="card-name">National Highway Helpline (NHAI)</div>
+            <div class="card-desc">Accident response, ambulance, breakdown assistance, and towing cranes on Indian National Highways.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">1033</span><button class="btn-copy" onclick="copyNum('1033')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:1033" class="btn-dial">📞 Call 1033</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="panindia 14416 telemanas mental health counseling crisis">
+          <div>
+            <div class="card-top">
+              <span class="card-badge green">Mental Health</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7 Toll-Free</span>
+            </div>
+            <div class="card-name">Tele-MANAS (Mental Health)</div>
+            <div class="card-desc">Government tele-counseling and crisis intervention helpline available in multiple Indian languages.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">14416</span><button class="btn-copy" onclick="copyNum('14416')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:14416" class="btn-dial">📞 Call 14416</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="panindia 1078 ndrf disaster flood cyclone earthquake">
+          <div>
+            <div class="card-top">
+              <span class="card-badge">Disaster SOS</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">NDRF Disaster Response</div>
+            <div class="card-desc">National Disaster Response Force control room for floods, cyclones, landslides, and major calamities.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">1078</span><button class="btn-copy" onclick="copyNum('1078')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:1078" class="btn-dial">📞 Call 1078</a></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TAB 3: TRANSIT & COMMUTE SAFETY -->
+    <section id="tab-transit" class="tab-content">
+      <div class="section-title">🚆 Commuter & Travel Safety Helplines</div>
+
+      <!-- Cab & Auto Safety Callout -->
+      <div class="info-box">
+        <strong>🚕 In a Cab or Auto & Feeling Unsafe? Quick Safety Protocol:</strong>
+        <ul>
+          <li><strong>Dial 112 Immediately:</strong> Keep the line connected. Indian CAD centers capture cell tower coordinates even if you are unable to talk.</li>
+          <li><strong>Hit In-App Emergency (Uber / Ola / Rapido):</strong> Immediately sends telemetry data to safety response teams and bridges to local police.</li>
+          <li><strong>WhatsApp Live Location:</strong> Share continuous live location with family/friends.</li>
+          <li><strong>Child-lock Alert:</strong> If you suspect the rear child lock is engaged, demand to alight at a well-lit junction immediately.</li>
+        </ul>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- RailMadad 139 -->
+        <div class="card" data-tags="transit rail train 139 railmadad rpf passenger">
+          <div>
+            <div class="card-top">
+              <span class="card-badge blue">Long Trains</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">Indian Railways (RailMadad)</div>
+            <div class="card-desc">Press <strong>3 for Security / RPF</strong> on running trains (staff dispatched at next stop). Press <strong>1 for Medical Aid</strong>.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">139</span><button class="btn-copy" onclick="copyNum('139')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:139" class="btn-dial">📞 Call 139</a></div>
+          </div>
+        </div>
+
+        <!-- Mumbai Local 1512 -->
+        <div class="card" data-tags="transit mumbai local 1512 train grp central western harbour">
+          <div>
+            <div class="card-top">
+              <span class="card-badge purple">Suburban Local</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">Mumbai Railway Police (GRP)</div>
+            <div class="card-desc">Safety helpline for local trains and stations across Mumbai. One-Rupee Clinics available at major junctions.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">1512</span><button class="btn-copy" onclick="copyNum('1512')">📋 Copy</button></div>
+            <div class="card-actions">
+              <a href="tel:1512" class="btn-dial">📞 Call 1512</a>
+              <a href="https://wa.me/919594899991?text=Local%20Train%20Emergency" target="_blank" class="btn-whatsapp">💬</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mumbai Metro Line 1 -->
+        <div class="card" data-tags="transit mumbai metro line 1 versova andheri ghatkopar">
+          <div>
+            <div class="card-top">
+              <span class="card-badge blue">Mumbai Metro</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Operating Hours</span>
+            </div>
+            <div class="card-name">Mumbai Metro Line 1</div>
+            <div class="card-desc">Versova - Andheri - Ghatkopar corridor emergency and passenger assistance desk.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">022-30310900</span><button class="btn-copy" onclick="copyNum('02230310900')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:02230310900" class="btn-dial">📞 Call Line 1</a></div>
+          </div>
+        </div>
+
+        <!-- Mumbai Metro Line 2A & 7 -->
+        <div class="card" data-tags="transit mumbai metro line 2a line 7 mmmocl dahisar andheri">
+          <div>
+            <div class="card-top">
+              <span class="card-badge amber">Mumbai Metro</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Toll-Free</span>
+            </div>
+            <div class="card-name">Mumbai Metro Lines 2A & 7</div>
+            <div class="card-desc">Maha Mumbai Metro (MMMOCL). Special helpline for women, seniors, and differently abled: <strong>1800 889 0808</strong>.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">1800 889 0505</span><button class="btn-copy" onclick="copyNum('18008890505')">📋 Copy</button></div>
+            <div class="card-actions">
+              <a href="tel:18008890505" class="btn-dial">📞 Call General</a>
+              <a href="tel:18008890808" class="btn-secondary" style="padding: 11px 12px; text-decoration: none;">Women Help</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mumbai Metro Line 3 Aqua Line -->
+        <div class="card" data-tags="transit mumbai metro line 3 aqua line colaba bkseepz aarey mmrcl">
+          <div>
+            <div class="card-top">
+              <span class="card-badge green">Aqua Line</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span>
+            </div>
+            <div class="card-name">Mumbai Metro Line 3 (Aqua Line)</div>
+            <div class="card-desc">Colaba-Bandra-SEEPZ underground metro 24x7 passenger support and grievance helpline.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">1800 220 220</span><button class="btn-copy" onclick="copyNum('1800220220')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:1800220220" class="btn-dial">📞 Call Line 3</a></div>
+          </div>
+        </div>
+
+        <!-- Hyderabad Metro Rail -->
+        <div class="card" data-tags="transit hyderabad metro lt metro red blue green line">
+          <div>
+            <div class="card-top">
+              <span class="card-badge purple">Hyderabad Metro</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">06:00 - 22:00</span>
+            </div>
+            <div class="card-name">Hyderabad Metro Rail (L&T)</div>
+            <div class="card-desc">Customer care and security helpline across all 3 corridors. WhatsApp assistance for ladies coaches.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">040-2333 2555</span><button class="btn-copy" onclick="copyNum('04023332555')">📋 Copy</button></div>
+            <div class="card-actions">
+              <a href="tel:04023332555" class="btn-dial">📞 Call Metro</a>
+              <a href="https://wa.me/917032224242?text=Metro%20Assistance%20Hyderabad" target="_blank" class="btn-whatsapp">💬</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TAB 4: MUMBAI CITY -->
+    <section id="tab-mumbai" class="tab-content">
+      <div class="section-title">🌊 Mumbai City Helplines</div>
+
+      <div class="cards-grid">
+
+        <div class="card" data-tags="mumbai 100 112 police control room">
+          <div>
+            <div class="card-top"><span class="card-badge">Police</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Mumbai Police Control Room</div>
+            <div class="card-desc">Main control room for emergency dispatch across Greater Mumbai.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">100 / 022-22620111</span><button class="btn-copy" onclick="copyNum('02222620111')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:100" class="btn-dial">📞 Call 100</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="mumbai 103 women distress child senior citizen">
+          <div>
+            <div class="card-top"><span class="card-badge">Women & Child</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Mumbai Women Helpline</div>
+            <div class="card-desc">Specialized Mumbai Police protection cell for women, children, and elderly citizens.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">103</span><button class="btn-copy" onclick="copyNum('103')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:103" class="btn-dial">📞 Call 103</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="mumbai 1916 bmc disaster monsoon flood tree waterlogging">
+          <div>
+            <div class="card-top"><span class="card-badge amber">Disaster Cell</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">BMC Disaster Management</div>
+            <div class="card-desc">Crucial during Mumbai monsoons for severe waterlogging, tree falls, building collapse, and high tides.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">1916 / 022-22694727</span><button class="btn-copy" onclick="copyNum('1916')">📋 Copy 1916</button></div>
+            <div class="card-actions"><a href="tel:1916" class="btn-dial">📞 Call 1916</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="mumbai 8454999999 whatsapp police traffic">
+          <div>
+            <div class="card-top"><span class="card-badge green">WhatsApp Help</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Mumbai Police WhatsApp</div>
+            <div class="card-desc">Report neighborhood disturbances, send photos/videos, or report traffic violations directly.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">84549 99999</span><button class="btn-copy" onclick="copyNum('8454999999')">📋 Copy</button></div>
+            <div class="card-actions">
+              <a href="tel:8454999999" class="btn-dial">📞 Call</a>
+              <a href="https://wa.me/918454999999" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="mumbai traffic auto taxi refusal towing">
+          <div>
+            <div class="card-top"><span class="card-badge blue">Traffic</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Mumbai Traffic Police Helpline</div>
+            <div class="card-desc">Auto and taxi ride refusals, overcharging, towing inquiries, and traffic snarls.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">022-24937747</span><button class="btn-copy" onclick="copyNum('02224937747')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:02224937747" class="btn-dial">📞 Call Traffic</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="mumbai thane 02225443535 police">
+          <div>
+            <div class="card-top"><span class="card-badge">Thane Suburb</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Thane Police Control Room</div>
+            <div class="card-desc">Police emergency assistance for Thane city and suburban commissionerate.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">022-25443535</span><button class="btn-copy" onclick="copyNum('02225443535')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:02225443535" class="btn-dial">📞 Call Thane</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="mumbai navi mumbai 02227574928 vashi panvel police">
+          <div>
+            <div class="card-top"><span class="card-badge">Navi Mumbai</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Navi Mumbai Police Control</div>
+            <div class="card-desc">Coverage across Vashi, Nerul, Belapur, Kharghar, and Panvel corridor.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">022-27574928</span><button class="btn-copy" onclick="copyNum('02227574928')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:02227574928" class="btn-dial">📞 Call Navi Mumbai</a></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TAB 5: HYDERABAD CITY -->
+    <section id="tab-hyderabad" class="tab-content">
+      <div class="section-title">🏛️ Hyderabad City Helplines</div>
+
+      <div class="info-box">
+        <strong>⚡ Hyderabad Fast Response Note:</strong> Dial <strong>100</strong> in Telangana connects to a state-of-the-art Command & Control Centre with GPS-tracked Blue Colts and Patrol Mobiles reaching within <strong>5–8 minutes</strong>.
+      </div>
+
+      <div class="cards-grid">
+
+        <div class="card" data-tags="hyderabad 100 112 police control patrol">
+          <div>
+            <div class="card-top"><span class="card-badge">Dial 100</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7 • High Speed</span></div>
+            <div class="card-name">Telangana Police (Dial 100)</div>
+            <div class="card-desc">Integrated police command center for Hyderabad, Cyberabad, and Rachakonda with live patrol dispatch.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">100 / 112</span><button class="btn-copy" onclick="copyNum('100')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:100" class="btn-dial">📞 Call 100</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="hyderabad she teams 9490616555 women stalking eve teasing">
+          <div>
+            <div class="card-top"><span class="card-badge">SHE Teams</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Hyderabad SHE Teams (Direct)</div>
+            <div class="card-desc">Dedicated wing combating stalking, public harassment, social media abuse, and transit distress.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">94906 16555</span><button class="btn-copy" onclick="copyNum('9490616555')">📋 Copy</button></div>
+            <div class="card-actions">
+              <a href="tel:9490616555" class="btn-dial">📞 Call SHE Teams</a>
+              <a href="https://wa.me/919490616555?text=Urgent%20Complaint%20SHE%20Teams" target="_blank" class="btn-whatsapp">💬</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="hyderabad 8712656856 she teams whatsapp telangana proof video">
+          <div>
+            <div class="card-top"><span class="card-badge green">State WhatsApp</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">State SHE Teams WhatsApp</div>
+            <div class="card-desc">Send photos, vehicle numbers, or video proof of harassment directly to Telangana Police.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">87126 56856</span><button class="btn-copy" onclick="copyNum('8712656856')">📋 Copy</button></div>
+            <div class="card-actions">
+              <a href="tel:8712656856" class="btn-dial">📞 Call</a>
+              <a href="https://wa.me/918712656856" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="hyderabad cyberabad 9490617100 it corridor hitec city gachibowli madhapur">
+          <div>
+            <div class="card-top"><span class="card-badge blue">IT Corridor</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Cyberabad Police Control</div>
+            <div class="card-desc">Coverage for Hitec City, Gachibowli, Madhapur, Financial District, and Rajiv Gandhi Airport corridor.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">94906 17100</span><button class="btn-copy" onclick="copyNum('9490617100')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:9490617100" class="btn-dial">📞 Call Cyberabad</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="hyderabad cyberabad women safety wing 9490617444 it night transit">
+          <div>
+            <div class="card-top"><span class="card-badge purple">IT Women Safety</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Cyberabad Women Safety Wing</div>
+            <div class="card-desc">Dedicated protection squad for women working late shifts and commuting in the IT / corporate belt.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">94906 17444</span><button class="btn-copy" onclick="copyNum('9490617444')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:9490617444" class="btn-dial">📞 Call IT Safety</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="hyderabad rachakonda 9490617111 uppal lb nagar">
+          <div>
+            <div class="card-top"><span class="card-badge">East Hyderabad</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Rachakonda Police Control</div>
+            <div class="card-desc">Covers LB Nagar, Uppal, Ghatkesar, Malkajgiri, and outer eastern Hyderabad regions.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">94906 17111</span><button class="btn-copy" onclick="copyNum('9490617111')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:9490617111" class="btn-dial">📞 Call Rachakonda</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="hyderabad ghmc drf 04021111111 flood rain tree fallen water stagnation">
+          <div>
+            <div class="card-top"><span class="card-badge amber">Disaster & Civic</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">GHMC Disaster Response Force (DRF)</div>
+            <div class="card-desc">Urban flooding, heavy rains, clearing fallen trees, waterlogging, and emergency municipal aid.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">040-21111111</span><button class="btn-copy" onclick="copyNum('04021111111')">📋 Copy</button></div>
+            <div class="card-actions"><a href="tel:04021111111" class="btn-dial">📞 Call GHMC</a></div>
+          </div>
+        </div>
+
+        <div class="card" data-tags="hyderabad traffic auto meter refusal overcharging">
+          <div>
+            <div class="card-top"><span class="card-badge green">Traffic WhatsApp</span><span style="font-size: 0.8rem; color: var(--text-muted);">24×7</span></div>
+            <div class="card-name">Hyderabad Traffic WhatsApp</div>
+            <div class="card-desc">Report auto fare refusal, broken meter overcharging, or harassment by drivers.</div>
+          </div>
+          <div>
+            <div class="card-number-row"><span class="card-number">90102 03626</span><button class="btn-copy" onclick="copyNum('9010203626')">📋 Copy</button></div>
+            <div class="card-actions">
+              <a href="tel:9010203626" class="btn-dial">📞 Call</a>
+              <a href="https://wa.me/919010203626?text=Traffic%20Complaint" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Fixed Bottom SOS Action Bar -->
+  <div class="bottom-bar">
+    <div class="bottom-bar-inner">
+      <a href="tel:112" class="bottom-sos-btn">
+        <span>🚨</span> <span>CALL 112 (Universal SOS)</span>
+      </a>
+      <a href="https://api.whatsapp.com/send?text=🚨%20Essential%20Emergency%20Helplines%20in%20India%3A%0A%E2%80%A2%20Everywhere%20in%20India%3A%20112%0A%E2%80%A2%20Police%3A%20100%0A%E2%80%A2%20Railways%3A%20139%0A%E2%80%A2%20Mumbai%20Local%3A%201512%0A%E2%80%A2%20Mumbai%20Women%3A%20103%0A%E2%80%A2%20Hyderabad%20SHE%20Teams%3A%209490616555%0A%E2%80%A2%20Cyber%20Fraud%3A%201930%0ASave%20or%20bookmark%20this%20directory!" target="_blank" class="bottom-share-btn">
+        <span>💬</span> <span>Share</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal for Infographic Poster Preview -->
+  <div id="posterModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Emergency Helplines Poster</h3>
+        <button class="modal-close" onclick="closePosterModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img src="emergency_helplines_india.jpg" alt="Emergency Helplines India Graphic Card">
+      </div>
+      <div class="modal-footer">
+        <a href="emergency_helplines_india.jpg" download="emergency_helplines_india.jpg" class="btn-dial">
+          📥 Download Poster Image
+        </a>
+        <button class="btn-secondary" onclick="closePosterModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab Switching
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    function switchTab(targetId) {
+      tabButtons.forEach(btn => {
+        if (btn.getAttribute('data-tab') === targetId) {
+          btn.classList.add('active');
+          btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      tabContents.forEach(content => {
+        if (content.id === targetId) {
+          content.classList.add('active');
+        } else {
+          content.classList.remove('active');
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchTab(btn.getAttribute('data-tab'));
+      });
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+      document.body.setAttribute('data-theme', 'light');
+      themeToggle.textContent = '☀️';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.body.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.body.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.setAttribute('data-theme', 'light');
+        themeToggle.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Copy to Clipboard
+    function copyNum(number) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(number);
+      } else {
+        const input = document.createElement('input');
+        input.value = number;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+      }
+      showToast('Copied: ' + number);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+
+    // Live Search
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      const allCards = document.querySelectorAll('.card');
+
+      if (!query) {
+        // Restore tab view
+        allCards.forEach(card => card.style.display = 'flex');
+        const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
+        switchTab(activeTab);
+        return;
+      }
+
+      // Show all tab contents to search across all sections
+      tabContents.forEach(content => content.classList.add('active'));
+
+      allCards.forEach(card => {
+        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+        const text = card.textContent.toLowerCase();
+        if (tags.includes(query) || text.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Poster Modal
+    function openPosterModal() {
+      document.getElementById('posterModal').classList.add('open');
+    }
+    function closePosterModal() {
+      document.getElementById('posterModal').classList.remove('open');
+    }
+    document.getElementById('posterModal').addEventListener('click', (e) => {
+      if (e.target.id === 'posterModal') closePosterModal();
+    });
+  </script>
+</body>
+</html>
